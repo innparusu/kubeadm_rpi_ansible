@@ -2,8 +2,10 @@
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
-- name: add repository
-  shell: echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kube.list
+- name: add repo
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
 
 - name: update all packages to the latest version
   apt:
