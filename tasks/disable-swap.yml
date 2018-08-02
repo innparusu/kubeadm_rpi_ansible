@@ -1,0 +1,8 @@
+- name: "dphys-swapfile swapoff"
+  command: dphys-swapfile swapoff
+
+- name: "dphys-swapfile uninstall"
+  command: dphys-swapfile uninstall
+
+- name: "update-rc.d dhys-swapfile remove"
+  command: update-rc.d dphys-swapfile remove

@@ -1,0 +1,7 @@
+- hosts: all
+  become: yes
+  user: pi
+  tasks:
+    - include: tasks/install-docker.yml
+    - include: tasks/disable-swap.yml
+    - include: tasks/install-kubeadm.yml

@@ -1,0 +1,19 @@
+- name: add apt-key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+- name: add repository
+  shell: echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kube.list
+
+- name: update all packages to the latest version
+  apt:
+    name: '*'
+    state: latest
+
+- name: install kubeadm
+  apt:
+    name: '{{ item }}'
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
